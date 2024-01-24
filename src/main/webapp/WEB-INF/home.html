@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>List Customer</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        a, button {
+            text-decoration: none;
+            padding: 5px 10px;
+            margin: 5px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        a {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        a.update {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        a.delete {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+    </style>
+</head>
+<body>
+
+<h3>Customers</h3>
+
+<a th:href="@{/products/create}">Add</a>
+
+<table id="student">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Address</th>
+        <th>Email</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row : ${Home}">
+        <td th:text="${row.name}"></td>
+        <td th:text="${row.description}"></td>
+        <td th:text="${row.price}"></td>
+        <td th:text="${row.dateProduct}"></td>
+        <td>
+            <a th:href="@{/products/{id}/edit(id=${row.idService})}">Edit</a>
+            <a th:href="@{/products/{id}/delete(id=${row.idService})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

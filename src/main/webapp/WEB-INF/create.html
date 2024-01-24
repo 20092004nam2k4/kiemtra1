@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" >
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=YourFontName">
+<head >
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: "YourFontName", sans-serif;
+            /* Add other font styles as needed */
+        }
+    </style>
+</head>
+<body>
+    <h3>Create new song</h3>
+    <p>
+        <a th:href="@{/products/}">
+            Back to list song
+        </a>
+    </p>
+<div id="form">
+    <form th:action="@{/products/save}" th:object="${add}"
+          method="post">
+        <input type="hidden" th:field="*{idService}"/>
+        <div>
+            <label>Name: </label>
+            <input type="text" th:field="*{name}">
+        </div>
+        <div>
+            <label>Description: </label>
+            <input type="text" th:field="*{description}" min="18" max="500">
+        </div>
+        <div>
+            <label>price: </label>
+            <input type="number" th:field="*{price}">
+        </div>
+        <div>
+            <label>dateProduct: </label>
+            <input type="text" th:field="*{dateProduct}">
+        </div>
+        <input type="submit" value="save">
+    </form>
+</div>
+</body>
+</html>
